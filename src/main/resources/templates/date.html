@@ -5,10 +5,12 @@
 
 <head>
   <title> Themeleaf Demo</title>
+  <!--reference css file-->
+  <link rel="stylesheet" th:href="@{/css/demo.css}">
 </head>
 
 <body>
-<p th:text="'Time on the server side '  + ${date} "/>
+<p th:text="'Time on the server side '  + ${date} " class="funny"/>
 </body>
 
 
