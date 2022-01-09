@@ -4,28 +4,31 @@ import com.mami.luv2codes.Service.EmployeeService;
 import com.mami.luv2codes.model.Employee;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
-public class EmployeerestController {
+@Controller
+@RequestMapping("/employees")
+public class EmployeeController {
 
   //quick and direct inject employee dao
   private EmployeeService employeeService;
 
   @Autowired // nor required
-  public EmployeerestController(EmployeeService employeeService) {
+  public EmployeeController(EmployeeService employeeService) {
     this.employeeService = employeeService;
   }
 
   //expose "/employees" and return lis of employees
-  @GetMapping("/employees")
+  @GetMapping("/all")
   public List<Employee> getAllEmployees() {
     return employeeService.findAll();
   }
