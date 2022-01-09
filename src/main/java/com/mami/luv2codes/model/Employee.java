@@ -1,22 +1,40 @@
 package com.mami.luv2codes.model;
 
-public class Employee {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name="employee")
+public class Employee {
+  //define fields
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Column(name = "id")
   private int id;
+
+  @Column(name="first_name")
   private String firstName;
+
+  @Column(name="last_Name")
   private String lastName;
+
+  @Column(name="email")
   private String email;
 
-  public Employee() {
-  }
-
+  //define constructors
+  //requierd by Hibernate
+  public Employee() {  }
   public Employee(int id, String firstName, String lastName, String email) {
     this.id = id;
     this.firstName = firstName;
     this.lastName = lastName;
     this.email = email;
   }
-
+  //define getters and setters
   public int getId() {
     return id;
   }
@@ -48,6 +66,8 @@ public class Employee {
   public void setEmail(String email) {
     this.email = email;
   }
+
+  //define tostring
 
   @Override
   public String toString() {
