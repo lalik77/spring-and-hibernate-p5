@@ -7,5 +7,8 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface EmployeeRepository extends JpaRepository<Employee,Integer> {
 
+  //add a method to sort by last name
 
+  List<Employee> findAllByOrderByLastNameAsc();
 }
+

@@ -13,14 +13,17 @@ public class EmployeeServiceImpl implements EmployeeService {
 
   private EmployeeRepository employeeRepository;
 
- // @Autowired //not required
+  //@Autowired //not required
   public EmployeeServiceImpl(EmployeeRepository employeeRepository) {
     this.employeeRepository = employeeRepository;
   }
 
   @Override
   public List<Employee> findAll() {
-    return employeeRepository.findAll();
+
+    //return employeeRepository.findAll();
+    return employeeRepository.findAllByOrderByLastNameAsc();
+
   }
 
   @Override
